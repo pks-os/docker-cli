@@ -13,20 +13,20 @@ require (
 	github.com/distribution/reference v0.6.0
 	github.com/docker/cli-docs-tool v0.8.0
 	github.com/docker/distribution v2.8.3+incompatible
-	github.com/docker/docker v27.0.2-0.20241031194140-6ac445c42bad+incompatible // master (v-next)
+	github.com/docker/docker v27.0.2-0.20241120142749-e5c2b5e10d68+incompatible // master (v-next)
 	github.com/docker/docker-credential-helpers v0.8.2
 	github.com/docker/go-connections v0.5.0
 	github.com/docker/go-units v0.5.0
 	github.com/fvbommel/sortorder v1.1.0
 	github.com/go-jose/go-jose/v4 v4.0.4
-	github.com/go-viper/mapstructure/v2 v2.0.0
+	github.com/go-viper/mapstructure/v2 v2.2.1
 	github.com/gogo/protobuf v1.3.2
 	github.com/google/go-cmp v0.6.0
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510
 	github.com/mattn/go-runewidth v0.0.15
 	github.com/moby/patternmatcher v0.6.0
 	github.com/moby/swarmkit/v2 v2.0.0-20241017191044-e8ecf83ee08e
-	github.com/moby/sys/capability v0.3.0
+	github.com/moby/sys/capability v0.4.0
 	github.com/moby/sys/sequential v0.6.0
 	github.com/moby/sys/signal v0.7.1
 	github.com/moby/term v0.5.0
@@ -39,7 +39,7 @@ require (
 	github.com/spf13/cobra v1.8.1
 	github.com/spf13/pflag v1.0.5
 	github.com/theupdateframework/notary v0.7.1-0.20210315103452-bf96a202a09a
-	github.com/tonistiigi/go-rosetta v0.0.0-20200727161949-f79598599c5d
+	github.com/tonistiigi/go-rosetta v0.0.0-20220804170347-3f4430f2d346
 	github.com/xeipuuv/gojsonschema v1.2.0
 	go.opentelemetry.io/otel v1.28.0
 	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.28.0
