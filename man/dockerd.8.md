@@ -10,6 +10,7 @@ dockerd - Enable daemon mode
 [**--authorization-plugin**[=*[]*]]
 [**-b**|**--bridge**[=*BRIDGE*]]
 [**--bip**[=*BIP*]]
+[**--bip6**[=*BIP*]]
 [**--cgroup-parent**[=*[]*]]
 [**--config-file**[=*path*]]
 [**--containerd**[=*SOCKET-PATH*]]
@@ -34,8 +35,9 @@ dockerd - Enable daemon mode
 [**--fixed-cidr**[=*FIXED-CIDR*]]
 [**--fixed-cidr-v6**[=*FIXED-CIDR-V6*]]
 [**-G**|**--group**[=*docker*]]
-[**-H**|**--host**[=*[]*]]
 [**--help**]
+[**-H**|**--host**[=*[]*]]
+[**--host-gateway-ip**[=*HOST-GATEWAY-IP*]]
 [**--http-proxy**[*""*]]
 [**--https-proxy**[*""*]]
 [**--icc**[=**true**]]
@@ -44,6 +46,7 @@ dockerd - Enable daemon mode
 [**--insecure-registry**[=*[]*]]
 [**--ip**[=*0.0.0.0*]]
 [**--ip-forward**[=**true**]]
+[**--ip-forward-no-drop**[=**true**]]
 [**--ip-masq**[=**true**]]
 [**--iptables**[=**true**]]
 [**--ipv6**]
@@ -145,7 +148,11 @@ $ sudo dockerd --add-runtime runc=runc --add-runtime custom=/usr/local/bin/my-ru
   container networking
 
 **--bip**=""
-  Use the provided CIDR notation address for the dynamically created bridge
+  Use the provided CIDR notation IPv4 address for the dynamically created bridge
+  (docker0); Mutually exclusive of \-b
+
+**--bip6**=""
+  Use the provided CIDR notation IPv6 address for the dynamically created bridge
   (docker0); Mutually exclusive of \-b
 
 **--cgroup-parent**=""
@@ -238,13 +245,18 @@ $ sudo dockerd --add-runtime runc=runc --add-runtime custom=/usr/local/bin/my-ru
   Group to assign the unix socket specified by -H when running in daemon mode.
   use '' (the empty string) to disable setting of a group. Default is `docker`.
 
+**--help**
+  Print usage statement
+
 **-H**, **--host**=[*unix:///var/run/docker.sock*]: tcp://[host:port] to bind or
 unix://[/path/to/socket] to use.
   The socket(s) to bind to in daemon mode specified using one or more
   tcp://host:port, unix:///path/to/socket, fd://\* or fd://socketfd.
 
-**--help**
-  Print usage statement
+**--host-gateway-ip**=[*2001:db8::1234*]
+  Supply host addresses to substitute for the special string host-gateway in
+  --add-host options. Addresses from the docker0 bridge are used by default.
+  Two of these options are allowed, one IPv4 and one IPv6 address.
 
 **--http-proxy***""*
   Proxy URL for HTTP requests unless overridden by NoProxy.
@@ -289,10 +301,19 @@ unix://[/path/to/socket] to use.
   has no effect.
 
   This setting will also enable IPv6 forwarding if you have both
-  **--ip-forward=true** and **--fixed-cidr-v6** set. Note that this may reject
-  Router Advertisements and interfere with the host's existing IPv6
+  **--ip-forward=true** and an IPv6 enabled bridge network. Note that this
+  may reject Router Advertisements and interfere with the host's existing IPv6
   configuration. For more information, consult the documentation about
   "Advanced Networking - IPv6".
+
+**--ip-forward-no-drop**=**true**|**false**
+  When **false**, the default, if Docker enables IP forwarding itself (see
+  **--ip-forward**), and **--iptables** or **--ip6tables** are enabled, it
+  also sets the default policy for the FORWARD chain in the iptables or
+  ip6tables filter table to DROP.
+
+  When **true**, and when IP forwarding is already enabled, Docker does
+  not modify the default policy of the FORWARD chain.
 
 **--ip-masq**=**true**|**false**
   Enable IP masquerading for bridge's IP range. Default is **true**.
