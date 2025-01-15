@@ -8,10 +8,10 @@ go 1.22.0
 
 require (
 	dario.cat/mergo v1.0.1
-	github.com/containerd/platforms v0.2.1
-	github.com/creack/pty v1.1.21
+	github.com/containerd/platforms v1.0.0-rc.1
+	github.com/creack/pty v1.1.24
 	github.com/distribution/reference v0.6.0
-	github.com/docker/cli-docs-tool v0.8.0
+	github.com/docker/cli-docs-tool v0.9.0
 	github.com/docker/distribution v2.8.3+incompatible
 	github.com/docker/docker v27.0.2-0.20250110234321-69687190936d+incompatible // master (v-next)
 	github.com/docker/docker-credential-helpers v0.8.2
@@ -23,7 +23,7 @@ require (
 	github.com/gogo/protobuf v1.3.2
 	github.com/google/go-cmp v0.6.0
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510
-	github.com/mattn/go-runewidth v0.0.15
+	github.com/mattn/go-runewidth v0.0.16
 	github.com/moby/patternmatcher v0.6.0
 	github.com/moby/swarmkit/v2 v2.0.0-20250103191802-8c1959736554
 	github.com/moby/sys/capability v0.4.0
@@ -41,13 +41,13 @@ require (
 	github.com/theupdateframework/notary v0.7.1-0.20210315103452-bf96a202a09a
 	github.com/tonistiigi/go-rosetta v0.0.0-20220804170347-3f4430f2d346
 	github.com/xeipuuv/gojsonschema v1.2.0
-	go.opentelemetry.io/otel v1.28.0
-	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.28.0
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.28.0
-	go.opentelemetry.io/otel/metric v1.28.0
-	go.opentelemetry.io/otel/sdk v1.28.0
-	go.opentelemetry.io/otel/sdk/metric v1.28.0
-	go.opentelemetry.io/otel/trace v1.28.0
+	go.opentelemetry.io/otel v1.31.0
+	go.opentelemetry.io/otel/exporters/otlp/otlpmetric/otlpmetricgrpc v1.31.0
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.31.0
+	go.opentelemetry.io/otel/metric v1.31.0
+	go.opentelemetry.io/otel/sdk v1.31.0
+	go.opentelemetry.io/otel/sdk/metric v1.31.0
+	go.opentelemetry.io/otel/trace v1.31.0
 	golang.org/x/sync v0.10.0
 	golang.org/x/sys v0.28.0
 	golang.org/x/term v0.27.0
@@ -74,7 +74,7 @@ require (
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/mux v1.8.1 // indirect
-	github.com/grpc-ecosystem/grpc-gateway/v2 v2.20.0 // indirect
+	github.com/grpc-ecosystem/grpc-gateway/v2 v2.22.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/klauspost/compress v1.17.11 // indirect
 	github.com/miekg/pkcs11 v1.1.1 // indirect
@@ -91,15 +91,15 @@ require (
 	github.com/xeipuuv/gojsonpointer v0.0.0-20190905194746-02993c407bfb // indirect
 	github.com/xeipuuv/gojsonreference v0.0.0-20180127040603-bd5ef7bd5415 // indirect
 	go.etcd.io/etcd/raft/v3 v3.5.16 // indirect
-	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.53.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.28.0 // indirect
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.28.0 // indirect
+	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.56.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.31.0 // indirect
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.31.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.3.1 // indirect
 	golang.org/x/crypto v0.31.0 // indirect
 	golang.org/x/net v0.33.0 // indirect
 	golang.org/x/time v0.6.0 // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20241007155032-5fefd90f89a9 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20241007155032-5fefd90f89a9 // indirect
-	google.golang.org/grpc v1.67.1 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20241021214115-324edc3d5d38 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20241021214115-324edc3d5d38 // indirect
+	google.golang.org/grpc v1.68.1 // indirect
 	google.golang.org/protobuf v1.35.2 // indirect
 )
