@@ -281,11 +281,23 @@ func printNames(out *streams.Out, headers []imgColumn, img topImage, color, unta
 		_, _ = fmt.Fprint(out, headers[0].Print(untaggedColor, "<untagged>"))
 	}
 
-	for nameIdx, name := range img.Names {
-		if nameIdx != 0 {
-			_, _ = fmt.Fprintln(out, "")
+	// TODO: Replace with namesLongestToShortest := slices.SortedFunc(slices.Values(img.Names))
+	// once we move to Go 1.23.
+	namesLongestToShortest := make([]string, len(img.Names))
+	copy(namesLongestToShortest, img.Names)
+	sort.Slice(namesLongestToShortest, func(i, j int) bool {
+		return len(namesLongestToShortest[i]) > len(namesLongestToShortest[j])
+	})
+
+	for nameIdx, name := range namesLongestToShortest {
+		// Don't limit first names to the column width because only the last
+		// name will be printed alongside other columns.
+		if nameIdx < len(img.Names)-1 {
+			_, fullWidth := out.GetTtySize()
+			_, _ = fmt.Fprintln(out, color.Apply(truncateRunes(name, int(fullWidth))))
+		} else {
+			_, _ = fmt.Fprint(out, headers[0].Print(color, name))
 		}
-		_, _ = fmt.Fprint(out, headers[0].Print(color, name))
 	}
 }
 
@@ -309,7 +321,7 @@ type imgColumn struct {
 func truncateRunes(s string, length int) string {
 	runes := []rune(s)
 	if len(runes) > length {
-		return string(runes[:length-3]) + "..."
+		return string(runes[:length-1]) + "…"
 	}
 	return s
 }
